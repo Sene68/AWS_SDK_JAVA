@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    awsSdkVer2 = "2.10.63"
+    awsSdkVer = "1.11.228"
+}
+
+dependencies {
+    implementation platform("com.amazonaws:aws-java-sdk-bom:${awsSdkVer}")
+    implementation("software.amazon.awssdk:ec2:${awsSdkVer2}")
+    implementation("software.amazon.awssdk:sts:${awsSdkVer2}")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
